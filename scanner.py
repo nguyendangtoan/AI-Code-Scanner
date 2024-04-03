@@ -75,7 +75,7 @@ def scan_file(file_path, scan_results, directory):
 
 def scan_directory(directory, file_types=None, scan_all=False):
     if scan_all:
-        files_to_scan = [os.path.join(root, file) for root, _, files in os.walk(directory)]
+        files_to_scan = [os.path.join(root, file) for root, _, files in os.walk(directory) for file in files]
     else:
         files_to_scan = [os.path.join(root, file) for root, _, files in os.walk(directory) for file in files if any(file.endswith(ft) for ft in file_types)]
 
@@ -112,3 +112,5 @@ def main():
 
 if __name__ == "__main__":
     main()
+
+
