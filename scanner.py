@@ -30,7 +30,7 @@ def save_results_to_file(filepath, scan_results):
 
 def scan_file(file_path, scan_results, directory):
     console.print(f"[bold blue]Scanning[/bold blue]: {file_path}")
-    with open(file_path, 'r') as file:
+    with open(file_path, 'r', encoding='utf8') as file:
         content = file.readlines()
 
     total_chunks = (len(content) - 1) // 100 + 100
